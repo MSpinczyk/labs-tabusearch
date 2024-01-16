@@ -1,10 +1,17 @@
 import random
 
 class TabuSearch:
-    def __init__(self, max_iterations, min_tabu=20, extra_tabu=4):
+    def __init__(self, max_iterations, min_tabu=None, extra_tabu=None):
         self.max_iterations = max_iterations
-        self.min_tabu = min_tabu # max_iterations/10
-        self.extra_tabu = extra_tabu # max_iterations/50
+        if min_tabu:
+            self.min_tabu = min_tabu # max_iterations/10
+        else:
+            self.min_tabu = self.max_iterations // 10
+
+        if extra_tabu:
+            self.extra_tabu = extra_tabu # max_iterations/50
+        else:
+            self.extra_tabu = self.max_iterations // 50
 
     def solve(self, problem):
         rand = random.Random()

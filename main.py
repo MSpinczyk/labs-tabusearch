@@ -10,11 +10,11 @@ def main():
     runner = SearchRunner()
     plot_generator = PlotGenerator()
 
-    algorithm_runs = 5
-    time_limit_in_seconds = 10
+    algorithm_runs = 2
+    time_limit_in_seconds = 20
     search_iterations = [100]
-    search_iteration = 10
-    problems = [LABS(solution_length=l) for l in (300, 500, 1000)]
+    search_iteration = 100
+    problems = [LABS(solution_length=l) for l in [27]]
     # multiple_results_iterations = runner.run_with_multiple_iterations(
     #     algorithm_runs, problem, solver, search_iterations, 20, 4, time_limit_in_seconds)
     multiple_problems_results = runner.run_with_multiple_problems(
