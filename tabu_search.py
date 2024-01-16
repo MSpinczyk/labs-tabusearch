@@ -1,7 +1,7 @@
 import random
 
 class TabuSearch:
-    def __init__(self, max_iterations, min_tabu=None, extra_tabu=None):
+    def __init__(self, max_iterations=200, min_tabu=None, extra_tabu=None):
         self.max_iterations = max_iterations
         if min_tabu:
             self.min_tabu = min_tabu # max_iterations/10
