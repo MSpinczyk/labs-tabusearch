@@ -12,6 +12,7 @@ class LABS:
             self.solution_array = []
             self.autocorrelation_products = []
             self.autocorrelations = []
+        self.generate_random_solution()
 
     def calculate_fitness(self):
         self.calculate_aperiodic_autocorrelation()

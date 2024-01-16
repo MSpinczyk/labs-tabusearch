@@ -11,17 +11,13 @@ class TabuSearch:
         tabu_list = [0] * len(problem.solution_array)
 
         solution = problem.solution_array[:]
-        # print('DOJECHAŁEM')
         fitness = problem.calculate_fitness()
 
         for k in range(1, self.max_iterations + 1):
-            # print(f'Current Iteration: {k}')
             best_move = self.find_best_move(problem, k, tabu_list, fitness)
             problem.solution_array = best_move['best_solution_in_iteration']
             problem.calculate_fitness()
             tabu_list[best_move['best_index_in_iteration'] - 1] = k + self.min_tabu + rand.randint(0, self.extra_tabu)
-
-            # print(best_move)
 
             if best_move['best_fitness_in_iteration'] < fitness:
                 solution = best_move['best_solution_in_iteration']
