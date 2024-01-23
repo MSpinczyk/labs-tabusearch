@@ -11,7 +11,7 @@ def main():
 
     sol_lengths = [100, 150, 200]
     extra_tabu_list = [1, 2, 3, 4, 6, 8]
-    runner.run_extra_tabu_experiment(15, sol_lengths, solver, 200, 20, extra_tabu_list, 1, 'data.pkl')
+    runner.run_extra_tabu_experiment(15, sol_lengths, solver, 200, 20, extra_tabu_list, 90, 'data.pkl')
 
 if __name__ == "__main__":
     main()
