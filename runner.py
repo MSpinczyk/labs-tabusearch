@@ -1,5 +1,6 @@
 import time
 from problem import LABS
+import pickle
 
 class SearchRunner:
     def run(self, algorithm_runs, problem, solver, solver_iterations, min_tabu, extra_tabu, time_limit_in_seconds):
@@ -55,3 +56,19 @@ class SearchRunner:
             results = self.run(algorithm_runs, LABS(problem), solver, solver_iterations, min_tabu, extra_tabu, time_limit_in_seconds)
             output.append(results)
         return output
+
+    def run_extra_tabu_experiment(self, algorithm_runs, sol_length_list, solver, solver_iterations, min_tabu, extra_tabu_list, time_limit_in_seconds, pickle_path):
+        all_runs = []
+        for extra_tabu in extra_tabu_list:
+            for sol_length in sol_length_list:
+                results = self.run(algorithm_runs, LABS(solution_length=sol_length), solver, solver_iterations, min_tabu, extra_tabu, time_limit_in_seconds)
+                all_runs.append(
+                    {
+                        'problem_size': sol_length,
+                        'extra_tabu': extra_tabu,
+                        'results': results
+                    }
+                )
+                with open(pickle_path, 'wb') as f:
+                    pickle.dump(all_runs, f)
+
